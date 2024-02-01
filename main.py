@@ -143,4 +143,5 @@ def send_end_message(message: Message):
 
 
 if __name__ == '__main__':
-    bot.polling( )
+    bot.polling()
+
