@@ -29,6 +29,7 @@ user_data = load_data()
 
 @bot.message_handler(commands=['start'])
 def start_handler(message: Message):
+    user_id = message.from_user.id
     keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
     msg = (f"Привет, {message.from_user.username}! \n"
            "Предистория к игре:\n"
@@ -37,7 +38,6 @@ def start_handler(message: Message):
     "Эдвин - мудрый и опытный маг, однако он не обладает грубой силой воина. Его оружие - это его знания и навыки, которые позволяют ему управлять природой и создавать магические щиты.\n"
     "В своем путешествии он встречает множество злых существ, и все они пытаются помешать ему достичь своей цели.\n")
 
-    user_id = message.from_user.id
     if str(user_id) not in user_data:
         user_data[str(user_id)] = "локация0"
         save_data(user_data)
