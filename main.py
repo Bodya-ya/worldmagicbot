@@ -3,7 +3,7 @@ from telebot.types import Message, ReplyKeyboardMarkup
 from dotenv import load_dotenv
 from os import getenv
 import json
-from steps import STEPS, msg, choices, img
+from steps import STEPS
 from utils import open_img
 load_dotenv()
 token = getenv("BOT_TOKEN")
@@ -141,7 +141,9 @@ def send_end_message(message: Message):
     repeatgame(message)
 
 
-
-if __name__ == '__main__':
-    bot.polling()
-
+if __name__ == "__main__":
+    while True:
+        try:
+            bot.polling()
+        except Exception as ex:
+            pass
